@@ -33,12 +33,13 @@ CALPP_INC_DIRS = []
 
 try:
     CALPP_INC_DIR = os.environ['ATISTREAMSDKROOT']
+    # CALPP_INC_DIR = "/opt/AMDAPPSDK-3.0/include/CAL/"
 except KeyError:
     print >>sys.stderr, "unavailable enviroment variable ATISTREAMSDKROOT"
     raise
 else:
     if os.path.exists(CALPP_INC_DIR):
-        CALPP_INC_DIRS.append(os.path.join(CALPP_INC_DIR, 'include'))
+        CALPP_INC_DIRS.append(os.path.join(CALPP_INC_DIR, 'include/CAL'))
     else:
         print >>sys.stderr, "The headers required to build CAL++ kernel" \
                             "were not found. Trying to continue anyway..."
